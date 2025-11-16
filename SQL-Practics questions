@@ -56,3 +56,50 @@ Try writing these yourself:
 
 3. Show how many employees each manager handles (hint: use GROUP BY m.emp_name).
 
+CREATE TABLE employees (
+    emp_id INT PRIMARY KEY,
+    emp_name VARCHAR(50),
+    department VARCHAR(30),
+    salary INT,
+    hire_date DATE,
+    email VARCHAR(50),
+    manager_id INT
+);
+
+INSERT INTO employees VALUES
+(1, 'Amit Sharma', 'IT',      75000, '2020-01-15', 'amit.sharma@company.com', NULL),
+(2, 'Riya Verma',  'HR',      60000, '2019-07-10', 'riya.v@company.com',       1),
+(3, 'Mohit Gupta', 'IT',      82000, '2021-03-20', 'mohit.g@company.com',      1),
+(4, 'Sneha Rao',   'Finance', 90000, '2018-11-05', 'sneha.rao@company.com',    NULL),
+(5, 'Arjun Mehta', 'HR',      58000, '2022-09-12', 'arjun@company.com',        2),
+(6, 'Neha Singh',  'IT',      79000, '2023-02-25', 'neha.s@company.com',       3),
+(7, 'Vivek Patel', 'Finance', 65000, '2019-05-30', 'vivek_patel@company.com',  4);
+
+Q1. Get first name and last name separately from emp_name. (Hint: SUBSTRING, LOCATE, LEFT, RIGHT)
+Q2. Extract only the domain (company.com) from email. (Hint: SUBSTRING_INDEX or RIGHT)
+Q3. Convert all employee names to uppercase. (Hint: UPPER())
+Q4. Show only employees where email starts with the first name. (Hint: LIKE + LOWER(emp_name) manipulation)
+Q5. Replace spaces in names with underscores. (Hint: REPLACE())
+Q6. Find employees whose names contain exactly 2 words. (Hint: count spaces → LENGTH(emp_name) - LENGTH(REPLACE(emp_name,' ','')))
+Q7. Show name length and email length.
+Q8. Show employees hired in the last 2 years. (Hint: DATEDIFF, INTERVAL)
+Q9. Display hire_date and the day name (Monday, Tuesday...). (Hint: DAYNAME()) and date_formate(col_name,"%W , %a")
+Q10. Extract only the month and year from hire_date. (Hint: MONTH(), YEAR())
+Q11. Find employees with weekend joining dates. (Hint: DAYOFWEEK() , weekday())
+Q12. Calculate how many days each employee has worked. (Hint: DATEDIFF(CURDATE(), hire_date))
+Q13. Show employees hired between 2020 and 2023. (Hint: BETWEEN + date)
+Q14. Find employees who earn more than the average salary. (Hint: subquery for AVG)
+Q15. Find the employee with the second-highest salary. (Hint: subquery + MAX())
+Q16. List employees working under the same manager. (Hint: subquery using manager_id)
+Q17. Show employees whose salary is above the HR department average. (Hint: correlated subquery)
+Q18. Find employees who were hired after Amit Sharma. (Hint: subquery on hire_date)
+Q19. Show departments with more than 1 employee. (Hint: subquery with GROUP BY)
+Q20. Use CTE to show employees with their manager’s name. (Hint: self join inside CTE)
+Q21. CTE to calculate total salary per department. (Hint: GROUP BY inside CTE)
+Q22. CTE to find top 3 highest-salaried employees. (Hint: ROW_NUMBER() inside CTE)
+Q23. Recursive CTE: find full reporting chain (employee → manager). (Hint: recursive CTE, if allowed)
+Q24. CTE to show employees hired before the earliest hire date in IT. (Hint: use min(hire_date) in CTE)
+Q25. CTE + subquery: find employees earning above company median salary.
+
+
+
