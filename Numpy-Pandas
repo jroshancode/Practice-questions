@@ -37,10 +37,71 @@ df = pd.DataFrame({
     'city': ['NY', 'LA', 'Chicago']
 })
 20. Select only the age column.
-21.Filter rows where score > 80.
+21. Select multiple columns
+21. Filter rows where score > 80.
 22. Replace missing values with mean.
-23.Sort by age descending.
-24.Drop a column.
+23. Sort by age descending.
+23. Select rows using index
+24. Select rows based on condition
+24. Drop a column.
 25. Group by department: average salary, max age.
 26. Merge two DataFrames on a key.
-27.
+emp = pd.DataFrame({'ID':[1,2,3], 'Name':['A','B','C']}) <br>
+sal = pd.DataFrame({'ID':[1,2,3], 'Salary':[1000,2000,3000]}) <br>
+pd.merge(emp, sal, on='ID', how='inner')
+
+
+27. Read large CSV, check memory, optimize types.
+28. Detect and remove duplicate rows.
+29. Apply a custom function to each row.
+def grade(score):
+    if score >= 90: return "A"
+    elif score >= 80: return "B"
+    else: return "C"
+
+df['grade'] = df['score'].apply(grade)
+
+30. Time-series: convert to datetime, set index, resample monthly.
+monthly = df.resample('M').sum()
+
+31. Replace all odd numbers with -1
+arr = np.arange(10)
+arr[arr % 2 == 1] = -1
+print(arr)
+
+32. Filter rows where Age > 25 and Salary < 60000
+33. Fill missing values with mean
+34. Drop rows with missing values
+35. Concatenate two DataFrames
+df1 = pd.DataFrame({'ID': [1,2], 'Name': ['A', 'B']}) <br>
+df2 = pd.DataFrame({'ID': [3,4], 'Name': ['C', 'D']}) <br>
+pd.concat([df1, df2])
+36. Join using index
+df1.join(df2, lsuffix='_left', rsuffix='_right')
+
+37. Create new column based on condition
+df['Status'] = np.where(df['Salary'] > 40000, 'High', 'Low')
+
+38. Reset and set index
+df.reset_index(inplace=True)
+df.set_index('Name', inplace=True)
+
+39. Read CSV and find top 5 highest-paid employees
+40. Calculate average salary per department
+41. Find total sales for each region
+42. Read Excel with multiple sheets
+
+43. Handle date/time column
+df['Date'] = pd.to_datetime(df['Date']) <br>
+df['Year'] = df['Date'].dt.year <br>
+
+44. Filter last 30 days data
+import datetime
+cutoff = datetime.datetime.now() - datetime.timedelta(days=30)
+recent = df[df['Date'] > cutoff]
+
+45. Merge customer and transaction datasets
+merged = pd.merge(customers, transactions, on='CustomerID', how='inner')
+
+46. 
+
