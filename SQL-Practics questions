@@ -1,0 +1,58 @@
+# 2025 - 11 - 16 
+-- Example Table: employees
+| emp_id | emp_name | manager_id | department |
+| ------ | -------- | ---------- | ---------- |
+| 1      | Alice    | NULL       | HR         |
+| 2      | Bob      | 1          | HR         |
+| 3      | Charlie  | 1          | HR         |
+| 4      | David    | 2          | IT         |
+| 5      | Emma     | 2          | IT         |
+| 6      | Frank    | 3          | Sales      |
+
+
+1. Basic Self Join – Find Employees and Their Managers
+SELECT 
+  e.emp_name AS Employee,
+  m.emp_name AS Manager
+FROM employees e
+JOIN employees m 
+  ON e.manager_id = m.emp_id;
+
+2. Find employees and managers in the same department:
+SELECT 
+  e.emp_name AS Employee,
+  m.emp_name AS Manager,
+  e.department
+FROM employees e
+JOIN employees m 
+  ON e.manager_id = m.emp_id
+WHERE e.department = m.department;
+
+3. Find Employees Who Don’t Have a Manager
+SELECT 
+  e.emp_name
+FROM employees e
+LEFT JOIN employees m 
+  ON e.manager_id = m.emp_id
+WHERE m.emp_id IS NULL;
+
+4. Show Manager–Employee Hierarchy (with IDs)
+SELECT 
+  e.emp_id AS Employee_ID,
+  e.emp_name AS Employee,
+  m.emp_id AS Manager_ID,
+  m.emp_name AS Manager
+FROM employees e
+LEFT JOIN employees m 
+  ON e.manager_id = m.emp_id;
+
+# 🧠 Practice Ideas:
+
+Try writing these yourself:
+
+1. List all employees who have the same manager.
+
+2. Find employees whose manager’s name starts with “A”.
+
+3. Show how many employees each manager handles (hint: use GROUP BY m.emp_name).
+
