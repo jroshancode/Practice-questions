@@ -8,3 +8,34 @@
 8. A fair six-sided die is rolled twice. What is the probability of getting 2 on the first roll and not getting 4 on the second roll?
 9. FInd the Z and T value for Population mean = 50, σ = 10 
 Sample mean = 54, n = 40, α = 0.05 , Z = ?
+
+CREATE TABLE employees (
+    emp_id INT,
+    name VARCHAR(50),
+    department VARCHAR(30),
+    salary INT,
+    city VARCHAR(30)
+);
+
+INSERT INTO employees VALUES
+(1, 'Amit', 'IT', 50000, 'Delhi'),
+(2, 'Neha', 'HR', 45000, 'Mumbai'),
+(3, 'Ravi', 'IT', 60000, 'Delhi'),
+(4, 'Priya', 'Finance', 70000, 'Chennai'),
+(5, 'Karan', 'HR', 48000, 'Mumbai'),
+(6, 'Sneha', 'IT', 75000, 'Delhi');
+
+10. FInd the all employees details where salary greater than 50000 ?
+11. Find the top 2 highest paid employees
+12. Department-wise average salary
+13. data = {
+    "customer_id": range(1, 101),
+    "age": np.random.randint(18, 60, 100),
+    "gender": np.random.choice(["Male", "Female"], 100),
+    "monthly_income": np.random.randint(20000, 80000, 100),
+    "spending_score": np.random.randint(1, 100, 100),
+    "region": np.random.choice(["North", "South", "East", "West"], 100)
+}
+14. Find the missing value and removed missing value .
+15. A sample of students scores an average of 85 on a test. The population mean is 80 with a standard deviation of 10. The sample size is 25. Is the sample mean significantly different at
+𝛼 = 0.05, then find the Z-score or T-Score ?
